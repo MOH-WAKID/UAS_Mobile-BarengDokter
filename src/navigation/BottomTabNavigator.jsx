@@ -18,6 +18,7 @@ const BottomTabNavigator = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="home-outline" color={color} size={size} />
                     ),
+                    headerShown: false,
                 }}
             />
             <Tab.Screen 
@@ -27,6 +28,7 @@ const BottomTabNavigator = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="calendar-outline" color={color} size={size} />
                     ),
+                    headerShown: false,
                 }}
             />
             <Tab.Screen 
@@ -36,6 +38,7 @@ const BottomTabNavigator = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="chatbubble-outline" color={color} size={size} />
                     ),
+                    headerShown: false,
                 }}
             />
             <Tab.Screen 
@@ -45,6 +48,7 @@ const BottomTabNavigator = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="person-outline" color={color} size={size} />
                     ),
+                    headerShown: false,
                 }}
             />
         </Tab.Navigator>
