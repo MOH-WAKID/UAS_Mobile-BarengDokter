@@ -1,14 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const App = () => {
-  return (
-    <View>
-      <Text>App</Text>
-    </View>
-  )
-}
+    return (
+        <View style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}></View>
+            <View style={{ flexDirection: 'row', backgroundColor: '#FFFFFF', elevation: 3, paddingTop: 5, paddingBottom: 5 }}>
+                <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name="home-outline" size={25} color="#0082F7" />
+                    <Text style={{ color: '#000', marginTop: 5 }}>Home</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+};
 
-export default App
-
-const styles = StyleSheet.create({})
+export default App;
