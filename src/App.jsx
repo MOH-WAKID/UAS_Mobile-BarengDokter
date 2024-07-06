@@ -11,6 +11,18 @@ const App = () => {
                     <Icon name="home-outline" size={25} color="#0082F7" />
                     <Text style={{ color: '#000', marginTop: 5 }}>Home</Text>
                 </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name="calendar-outline" size={25} color="#34354E" />
+                    <Text style={{ color: '#000', marginTop: 5 }}>Jadwal</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name="chatbubble-outline" size={25} color="#34354E" /> 
+                    <Text style={{ color: '#000', marginTop: 5 }}>Pesan</Text>    
+                </TouchableOpacity>
+                <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Icon name="person-outline" size={25} color="#34354E" />
+                    <Text style={{ color: '#000', marginTop: 5 }}>User</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
