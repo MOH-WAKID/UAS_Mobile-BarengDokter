@@ -1,32 +1,90 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StatusBar, TextInput, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const HomeScreen = () => {
     const [pencarian, setPencarian] = useState('');
 
+    const getCategoryIcon = (label) => {
+        switch (label) {
+            case "Artikel":
+                return "book-outline";
+            case "Konsultasi":
+                return "chatbubbles-outline";
+            case "Obat":
+                return "medkit-outline";
+            case "Cari Dokter":
+                return "search-outline";
+            case "Klinik":
+                return "medkit-outline";
+            default:
+                return "folder-open";
+        }
+    };
+
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#f4f4f4" />
             <View style={styles.header}>
-                <Text style={styles.heading}>Selamat Datang</Text>
-                <Text style={styles.subheading}>Moh Wakid👋</Text>
+                <Text style={styles.subheading}>Hello</Text>
+                <Text style={styles.heading}>Moh Wakid👋</Text>
                 <View style={styles.searchContainer}>
                     <TextInput
                         value={pencarian}
                         onChangeText={text => setPencarian(text)}
-                        placeholder='Cari informasi tentang kesehatan / dokter'
+                        placeholder='Cari informasi tentang kesehatan'
                         placeholderTextColor='#9e9e9e'
                         style={styles.input}
                     />
                     <TouchableOpacity onPress={() => console.log('Mencari: ', pencarian)} style={styles.searchButton}>
-                        <Icon name="search" size={24} color="#FFFFFF" />
+                        <Icon name="search" size={30} color="#FFFFFF" />
                     </TouchableOpacity>
                 </View>
             </View>
+            <ScrollView style={styles.content}>
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionTitle}>Jadwal Pemeriksaan</Text>
+                    <Text style={styles.viewAll}>Lihat Semua</Text>
+                </View>
+                <TouchableOpacity style={styles.card}>
+                    <View style={styles.cardContent}>
+                        <Text style={styles.cardTitle}>Dr. Adi Renata</Text>
+                        <Text style={styles.cardSubtitle}>Dokter Umum</Text>
+                        <View style={styles.cardDetails}>
+                            <View style={styles.cardDetailRow}>
+                                <Icon name="calendar" size={12} color="#FFFFFF" />
+                                <Text style={styles.cardDetail}> 6 April 2022</Text>
+                            </View>
+                            <View style={styles.cardDetailRow}>
+                                <Icon name="location" size={12} color="#FFFFFF" />
+                                <Text style={styles.cardDetail}> Klinik Medika</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <Icon name="chevron-forward" size={24} color="#FFFFFF" />
+                </TouchableOpacity>
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionTitle}>Kategori</Text>
+                    <Text style={styles.viewAll}>Lihat Semua</Text>
+                </View>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
+                    {["Artikel", "Konsultasi", "Obat", "Cari Dokter", "Klinik"].map((label, index) => (
+                        <CategoryCard key={index} label={label} icon={getCategoryIcon(label)} />
+                    ))}
+                </ScrollView>
+            </ScrollView>
         </View>
     );
-};
+}
+
+const CategoryCard = ({ label, icon }) => (
+    <View style={styles.categoryCard}>
+        <View style={styles.categoryIcon}>
+            <Icon name={icon} size={24} color="#0082F7" />
+        </View>
+        <Text style={styles.categoryLabel}>{label}</Text>
+    </View>
+);
 
 const styles = StyleSheet.create({
     container: {
@@ -69,14 +127,94 @@ const styles = StyleSheet.create({
     },
     searchButton: {
         backgroundColor: '#0082F7',
-        borderRadius: 5,
-        padding: 10,
+        borderRadius: 9,
+        padding: 11,
         alignItems: 'center',
         justifyContent: 'center',
     },
     content: {
         flex: 1,
         paddingHorizontal: 20,
+    },
+    sectionHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginVertical: 10,
+    },
+    sectionTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#0082F7',
+    },
+    viewAll: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#FDB436',
+    },
+    card: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        padding: 24,
+        backgroundColor: '#0082F7',
+        borderRadius: 10,
+        marginVertical: 10,
+        elevation: 3,
+    },
+    avatar: {
+        width: 90,
+        height: 90,
+        borderRadius: 50,
+        marginRight: 15,
+    },
+    cardContent: {
+        flex: 1,
+        marginLeft: 15,
+    },
+    cardDetails: {
+        marginTop: 10,
+    },
+    cardDetailRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 5,
+    },
+    cardTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#FFFFFF',
+    },
+    cardSubtitle: {
+        fontSize: 14,
+        color: '#FFFFFF',
+        marginVertical: 2,
+    },
+    cardDetail: {
+        fontSize: 12,
+        color: '#FFFFFF',
+    },
+    categories: {
+        flexDirection: 'row',
+        marginVertical: 10,
+    },
+    categoryCard: {
+        alignItems: 'center',
+        marginRight: 15,
+    },
+    categoryIcon: {
+        width: 55,
+        height: 55,
+        borderRadius: 30,
+        backgroundColor: '#FFFFFF',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 5,
+        elevation: 3,
+    },
+    categoryLabel: {
+        fontSize: 12,
+        textAlign: 'center',
+        color: '#212121',
     },
 });
 
