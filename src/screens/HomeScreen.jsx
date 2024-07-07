@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
     },
     searchButton: {
         backgroundColor: '#0082F7',
-        borderRadius: 9,
-        padding: 11,
+        borderRadius: 25,
+        padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
     },
