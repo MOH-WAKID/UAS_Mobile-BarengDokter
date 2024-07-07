@@ -29,7 +29,7 @@ const BottomTabNavigator = () => {
                     tabBarIcon: ({ color, size }) => (
                         <Icon name="calendar-outline" color={color} size={size} />
                     ),
-                    headerShown: false,
+                
                 }}
             />
             <Tab.Screen 

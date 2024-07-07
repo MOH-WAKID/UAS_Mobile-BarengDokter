@@ -55,11 +55,11 @@ const HomeScreen = () => {
                         <Text style={styles.cardSubtitle}>Dokter THT</Text>
                         <View style={styles.cardDetails}>
                             <View style={styles.cardDetailRow}>
-                                <Icon name="calendar" size={12} color="#FFFFFF" />
+                                <Icon name="calendar" size={14} color="#FFFFFF" />
                                 <Text style={styles.cardDetail}> 7 Juli 2024</Text>
                             </View>
                             <View style={styles.cardDetailRow}>
-                                <Icon name="location" size={12} color="#FFFFFF" />
+                                <Icon name="location" size={14} color="#FFFFFF" />
                                 <Text style={styles.cardDetail}> Klinik THT Pamekasan</Text>
                             </View>
                         </View>
