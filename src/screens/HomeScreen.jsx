@@ -47,7 +47,7 @@ const HomeScreen = () => {
             </View>
             <ScrollView style={styles.content}>
                 <View style={styles.sectionHeader}>
-                    <Text style={styles.sectionTitle}>Jadwal Pemeriksaan</Text>
+                    <Text style={styles.sectionTitle}>Jadwal Kerja Dokter</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('Jadwal')}>
                         <Text style={styles.viewAll}>Lihat Semua</Text>
                     </TouchableOpacity>
