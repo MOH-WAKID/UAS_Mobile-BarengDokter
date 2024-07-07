@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, StatusBar, TextInput, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import AvatarImage from '../image/Icon.png'; 
+
 const HomeScreen = () => {
     const [pencarian, setPencarian] = useState('');
 
@@ -47,17 +49,18 @@ const HomeScreen = () => {
                     <Text style={styles.viewAll}>Lihat Semua</Text>
                 </View>
                 <TouchableOpacity style={styles.card}>
+                    <Image source={AvatarImage} style={styles.avatar} />
                     <View style={styles.cardContent}>
-                        <Text style={styles.cardTitle}>Dr. Adi Renata</Text>
-                        <Text style={styles.cardSubtitle}>Dokter Umum</Text>
+                        <Text style={styles.cardTitle}>Dr. Supra</Text>
+                        <Text style={styles.cardSubtitle}>Dokter THT</Text>
                         <View style={styles.cardDetails}>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="calendar" size={12} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}> 6 April 2022</Text>
+                                <Text style={styles.cardDetail}> 7 Juli 2024</Text>
                             </View>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="location" size={12} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}> Klinik Medika</Text>
+                                <Text style={styles.cardDetail}> Klinik THT Pamekasan</Text>
                             </View>
                         </View>
                     </View>
@@ -162,8 +165,8 @@ const styles = StyleSheet.create({
         elevation: 3,
     },
     avatar: {
-        width: 90,
-        height: 90,
+        width: 100,
+        height: 100,
         borderRadius: 50,
         marginRight: 15,
     },
