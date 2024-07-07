@@ -21,10 +21,36 @@ const HomeScreen = () => {
                 return "search-outline";
             case "Klinik":
                 return "medkit-outline";
+            case "Berita":
+                return "newspaper-outline";
+            case "Event":
+                return "calendar-outline";
+            case "Tips Kesehatan":
+                return "heart-outline";
+            case "Forum":
+                return "people-outline";
+            case "Perawatan":
+                return "bandage-outline";
             default:
                 return "folder-open";
         }
     };
+
+    const topCategories = [
+        "Artikel", 
+        "Konsultasi", 
+        "Obat", 
+        "Cari Dokter", 
+        "Klinik"
+    ];
+
+    const bottomCategories = [
+        "Berita", 
+        "Event", 
+        "Tips Kesehatan", 
+        "Forum",
+        "Perawatan"
+    ];
 
     return (
         <View style={styles.container}>
@@ -76,10 +102,17 @@ const HomeScreen = () => {
                 </TouchableOpacity>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Kategori</Text>
-                    <Text style={styles.viewAll}>Lihat Semua</Text>
                 </View>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
-                    {["Artikel", "Konsultasi", "Obat", "Cari Dokter", "Klinik"].map((label, index) => (
+                    {topCategories.map((label, index) => (
+                        <CategoryCard key={index} label={label} icon={getCategoryIcon(label)} />
+                    ))}
+                </ScrollView>
+                <View style={styles.sectionHeader}>
+                    <Text style={styles.sectionTitle}>Lainnya</Text>
+                </View>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
+                    {bottomCategories.map((label, index) => (
                         <CategoryCard key={index} label={label} icon={getCategoryIcon(label)} />
                     ))}
                 </ScrollView>
@@ -123,7 +156,7 @@ const styles = StyleSheet.create({
     searchContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 5,
     },
     input: {
         flex: 1,
