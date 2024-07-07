@@ -16,57 +16,65 @@ const JadwalScreen = () => {
         {
             namaDokter: 'Dr. Supra',
             spesialisasi: 'Dokter Spesialis THT',
-            tanggal: '7 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Senin - Selasa',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage1, 
         },
         {
             namaDokter: 'Dr. Jefrry',
             spesialisasi: 'Dokter Spesialis Mata',
-            tanggal: '8 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Selasa - Rabu',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage2, 
         },
         {
             namaDokter: 'Dr. Dian',
             spesialisasi: 'Dokter Spesialis Saraf',
-            tanggal: '9 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Rabu - Kamis',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage3, 
         },
         {
             namaDokter: 'Dr. Angga',
             spesialisasi: 'Dokter Spesialis Bedah',
-            tanggal: '10 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Kamis - Jumat',
+            jam: '08.00 - 11.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage4, 
         },
         {
             namaDokter: 'Dr. Faizal',
             spesialisasi: 'Dokter Spesialis Jantung',
-            tanggal: '11 Juli 2024',
+            hari: 'Jumat - Sabtu',
+            jam: '08.00 - 11.00',
             lokasi: 'Klinik Pamekasan',
             gambar: KlinikImage5, 
         },
         {
             namaDokter: 'Dr. Garata',
             spesialisasi: 'Dokter Spesialis Anak',
-            tanggal: '12 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Senin - Selasa',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage6, 
         },
         {
             namaDokter: 'Dr. Linda',
             spesialisasi: 'Dokter Spesialis Kandungan',
-            tanggal: '13 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Selasa - Rabu',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage7, 
         },
         {
             namaDokter: 'Dr. Syarif',
             spesialisasi: 'Dokter Spesisalis Paru-Paru',
-            tanggal: '14 Juli 2024',
-            lokasi: 'Klinik Pamekasan',
+            hari: 'Rabu - Kamis',
+            jam: '08.00 - 12.00',
+            lokasi: 'RSUD Pamekasan',
             gambar: KlinikImage8, 
         },
         
@@ -85,7 +93,11 @@ const JadwalScreen = () => {
                         <View style={styles.cardDetails}>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="calendar" size={14} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}>{item.tanggal}</Text>
+                                <Text style={styles.cardDetail}>{item.hari}</Text>
+                            </View>
+                            <View style={styles.cardDetailRow}>
+                                <Icon name="time" size={14} color="#FFFFFF" />
+                                <Text style={styles.cardDetail}>{item.jam}</Text>
                             </View>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="location" size={14} color="#FFFFFF" />
@@ -104,7 +116,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#f4f4f4',
         paddingHorizontal: 20,
-        paddingTop: 20,
+        paddingTop: 8,
     },
     card: {
         flexDirection: 'row',

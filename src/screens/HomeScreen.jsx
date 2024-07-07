@@ -60,11 +60,15 @@ const HomeScreen = () => {
                         <View style={styles.cardDetails}>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="calendar" size={14} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}> 7 Juli 2024</Text>
+                                <Text style={styles.cardDetail}> Senin - Selasa</Text>
+                            </View>
+                            <View style={styles.cardDetailRow}>
+                                <Icon name="time" size={14} color="#FFFFFF" />
+                                <Text style={styles.cardDetail}> 08.00 - 12.00</Text>
                             </View>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="location" size={14} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}> Klinik Pamekasan</Text>
+                                <Text style={styles.cardDetail}> RSUD Pamekasan</Text>
                             </View>
                         </View>
                     </View>
