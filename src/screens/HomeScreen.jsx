@@ -56,7 +56,7 @@ const HomeScreen = () => {
                     <Image source={AvatarImage} style={styles.avatar} />
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>Dr. Supra</Text>
-                        <Text style={styles.cardSubtitle}>Dokter THT</Text>
+                        <Text style={styles.cardSubtitle}>Dokter Spesialis THT</Text>
                         <View style={styles.cardDetails}>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="calendar" size={14} color="#FFFFFF" />
@@ -64,7 +64,7 @@ const HomeScreen = () => {
                             </View>
                             <View style={styles.cardDetailRow}>
                                 <Icon name="location" size={14} color="#FFFFFF" />
-                                <Text style={styles.cardDetail}> Klinik THT Pamekasan</Text>
+                                <Text style={styles.cardDetail}> Klinik Pamekasan</Text>
                             </View>
                         </View>
                     </View>

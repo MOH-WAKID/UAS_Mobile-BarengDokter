@@ -24,7 +24,7 @@ const JadwalScreen = () => {
             namaDokter: 'Dr. Jefrry',
             spesialisasi: 'Dokter Spesialis Mata',
             tanggal: '8 Juli 2024',
-            lokasi: 'Klinik Medika',
+            lokasi: 'Klinik Pamekasan',
             gambar: KlinikImage2, 
         },
         {
@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     cardTitle: {
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#FFFFFF',
     },
