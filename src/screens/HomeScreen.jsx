@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StatusBar, TextInput, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
 
 import AvatarImage from '../image/Icon.png'; 
 
 const HomeScreen = () => {
     const [pencarian, setPencarian] = useState('');
+    const navigation = useNavigation();
 
     const getCategoryIcon = (label) => {
         switch (label) {
@@ -46,7 +48,9 @@ const HomeScreen = () => {
             <ScrollView style={styles.content}>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Jadwal Pemeriksaan</Text>
-                    <Text style={styles.viewAll}>Lihat Semua</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Jadwal')}>
+                        <Text style={styles.viewAll}>Lihat Semua</Text>
+                    </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.card}>
                     <Image source={AvatarImage} style={styles.avatar} />
