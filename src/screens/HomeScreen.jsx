@@ -3,7 +3,7 @@ import { View, Text, StatusBar, TextInput, StyleSheet, TouchableOpacity, ScrollV
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 
-import AvatarImage from '../image/Icon.png'; 
+import AvatarImage from '../image/Icon.png';
 
 const HomeScreen = () => {
     const [pencarian, setPencarian] = useState('');
@@ -37,19 +37,19 @@ const HomeScreen = () => {
     };
 
     const topCategories = [
-        "Artikel", 
-        "Konsultasi", 
-        "Obat", 
-        "Cari Dokter", 
-        "Klinik"
+        { label: "Artikel", screen: "ArtikelDetail" },
+        { label: "Konsultasi", screen: "KonsultasiDetail" },
+        { label: "Obat", screen: "ObatDetail" },
+        { label: "Cari Dokter", screen: "CariDokterDetail" },
+        { label: "Klinik", screen: "KlinikDetail" }
     ];
 
     const bottomCategories = [
-        "Berita", 
-        "Event", 
-        "Tips Kesehatan", 
-        "Forum",
-        "Perawatan"
+        { label: "Berita", screen: "BeritaDetail" },
+        { label: "Event", screen: "EventDetail" },
+        { label: "Tips Kesehatan", screen: "TipsKesehatanDetail" },
+        { label: "Forum", screen: "ForumDetail" },
+        { label: "Perawatan", screen: "PerawatanDetail" }
     ];
 
     return (
@@ -66,7 +66,7 @@ const HomeScreen = () => {
                         placeholderTextColor='#9e9e9e'
                         style={styles.input}
                     />
-                    <TouchableOpacity onPress={() => console.log('Mencari: ', pencarian)} style={styles.searchButton}>
+                    <TouchableOpacity onPress={() => console.log('Mencari: ', pencarian)} style={styles.searchButton} activeOpacity={1}>
                         <Icon name="search" size={30} color="#FFFFFF" />
                     </TouchableOpacity>
                 </View>
@@ -74,11 +74,11 @@ const HomeScreen = () => {
             <ScrollView style={styles.content}>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Jadwal Kerja Dokter</Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Jadwal')}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Jadwal')} activeOpacity={1}>
                         <Text style={styles.viewAll}>Lihat Semua</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={styles.card}>
+                <TouchableOpacity style={styles.card} activeOpacity={1}>
                     <Image source={AvatarImage} style={styles.avatar} />
                     <View style={styles.cardContent}>
                         <Text style={styles.cardTitle}>Dr. Supra</Text>
@@ -104,16 +104,16 @@ const HomeScreen = () => {
                     <Text style={styles.sectionTitle}>Kategori</Text>
                 </View>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
-                    {topCategories.map((label, index) => (
-                        <CategoryCard key={index} label={label} icon={getCategoryIcon(label)} />
+                    {topCategories.map((item, index) => (
+                        <CategoryCard key={index} label={item.label} icon={getCategoryIcon(item.label)} screen={item.screen} navigation={navigation} />
                     ))}
                 </ScrollView>
                 <View style={styles.sectionHeader}>
                     <Text style={styles.sectionTitle}>Lainnya</Text>
                 </View>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.categories}>
-                    {bottomCategories.map((label, index) => (
-                        <CategoryCard key={index} label={label} icon={getCategoryIcon(label)} />
+                    {bottomCategories.map((item, index) => (
+                        <CategoryCard key={index} label={item.label} icon={getCategoryIcon(item.label)} screen={item.screen} navigation={navigation} />
                     ))}
                 </ScrollView>
             </ScrollView>
@@ -121,13 +121,13 @@ const HomeScreen = () => {
     );
 }
 
-const CategoryCard = ({ label, icon }) => (
-    <View style={styles.categoryCard}>
+const CategoryCard = ({ label, icon, screen, navigation }) => (
+    <TouchableOpacity style={styles.categoryCard} onPress={() => navigation.navigate(screen)} activeOpacity={1}>
         <View style={styles.categoryIcon}>
             <Icon name={icon} size={24} color="#0082F7" />
         </View>
         <Text style={styles.categoryLabel}>{label}</Text>
-    </View>
+    </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
